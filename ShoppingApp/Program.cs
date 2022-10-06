@@ -6,13 +6,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
 {
     internal class Program
     {
-        Cart _cart = new Cart();
+        static Cart _cart = new Cart();
 
         
         
 
         
-        public void Main(string[] args)
+        static void Main(string[] args)
         {
             while (_cart.Articles.Count > 0)
             { 

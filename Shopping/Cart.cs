@@ -11,19 +11,22 @@ namespace Shopping
         #region public methods
         public void Add(List<Article> articles)
         {
-            throw new NotImplementedException();
+            _articles.AddRange(articles);
         }
 
         public List<Article> Remove(List<Article>? articles = null)
         {
-            throw new NotImplementedException();
+            List<Article> tempArticles = new List<Article>();
+            tempArticles.AddRange(_articles);
+            _articles.Clear();
+            return tempArticles;
         }
 
         public List<Article> Articles
         {
             get
             {
-                throw new NotImplementedException();
+                return _articles;
             }
         }
         #endregion public methods
