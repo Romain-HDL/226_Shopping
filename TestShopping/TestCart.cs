@@ -29,21 +29,23 @@ namespace TestShopping
         }
 
         [Test]
-        public void Remove_EmptyCartyWithArticles_Success()
+        public void Remove_AllArticleNotEmptyCart_Success()
         {
             //given
             //refer to Setup
-            int amountOfArticlesToRemove = 10;
-            _cart.Add(ArticleGenerator.Generate(amountOfArticlesToRemove));
-            Assert.AreEqual(amountOfArticlesToRemove, _cart.Articles.Count());
+            int amountOfArticlesToAdd = 10;
+            List<Article> expectedArticles = ArticleGenerator.Generate(amountOfArticlesToAdd);
+            List<Article> actualArticles = new List<Article>();
+            
+            _cart.Add(expectedArticles);
+            Assert.AreEqual(expectedArticles.Count(), _cart.Articles.Count());
 
             //when
-            _cart.Remove((null));
+            actualArticles = _cart.Remove();
 
             //then
+            Assert.AreEqual(expectedArticles.Count(), actualArticles.Count());
             Assert.AreEqual(0, _cart.Articles.Count());
         }
-
-
     }
 }
