@@ -1,6 +1,6 @@
 ﻿# 226_Shopping
 
-Foobar is a Python library for dealing with word pluralization.
+226_SHopping is a C# library for dealing with sequence diagram.
 
 ## Installation
 
