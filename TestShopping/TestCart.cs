@@ -43,5 +43,7 @@ namespace TestShopping
             //then
             Assert.AreEqual(0, _cart.Articles.Count());
         }
+
+
     }
 }
