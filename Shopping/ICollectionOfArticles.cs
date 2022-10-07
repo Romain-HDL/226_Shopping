@@ -9,7 +9,7 @@ namespace Shopping
     internal interface ICollectionOfArticles
     {
         void Add(List<Article> articles);
-        List<Article> Remove(List<Article>? articles = null);
+        List<Article> Remove(Boolean empty=false);
         List<Article> Articles { get; }
     }
 }
