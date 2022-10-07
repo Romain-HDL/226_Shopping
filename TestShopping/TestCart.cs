@@ -44,8 +44,8 @@ namespace TestShopping
             articlesReadyToCheckout = _cart.Remove();
 
             //then
-            Assert.AreEqual(0, _cart.Articles.Count());
-            Assert.AreEqual(expectedArticles.Count(), articlesReadyToCheckout.Count());
+            Assert.AreEqual(amountOfArticlesToAdd-1, _cart.Articles.Count());
+            Assert.AreEqual(1, articlesReadyToCheckout.Count());
         }
 
         [Test]
