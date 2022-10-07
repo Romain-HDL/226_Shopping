@@ -44,7 +44,6 @@ namespace TestShopping
             actualArticles = _cart.Remove();
 
             //then
-            Assert.AreEqual(expectedArticles.Count(), actualArticles.Count());
             Assert.AreEqual(amountOfArticlesToAdd-1, _cart.Articles.Count());
         }
 
