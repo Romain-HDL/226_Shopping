@@ -16,12 +16,7 @@ namespace Shopping
 
         public List<Article> Remove(Boolean empty = false)
         {
-
-            
-            List<Article> tempArticles = new List<Article>();
-            tempArticles.AddRange(_articles);
-            _articles.RemoveAt(0);
-            return tempArticles;
+            throw new NotImplementedException();
         }
 
         public List<Article> Articles
