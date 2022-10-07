@@ -15,7 +15,7 @@
         {
             get
             {
-                return _price;
+                throw new NotImplementedException();
             }
         }
         #endregion public methods

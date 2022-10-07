@@ -15,10 +15,27 @@ namespace TestShopping
         }
 
         [Test]
+        public void Balance_EmptyCheckout_Success()
+        {
+            //given
+            //refer to Setup
+            float _expectedBalance = 0;
+            Assert.That(_checkout.Articles.Count(), Is.EqualTo(0));
+
+            //when
+            //Event will be triggered by constructor
+
+            //then
+            Assert.That(_checkout.Articles.Count(), Is.EqualTo(0));
+            Assert.That(_checkout.Balance, Is.EqualTo(_expectedBalance));
+        }
+
+        [Test]
         public void Add_FirstArticle_Success()
         {
             //given
             //refer to Setup
+            float _expectedBalance = 1;
             Assert.That(_checkout.Articles.Count(), Is.EqualTo(0));
 
             //when
@@ -26,10 +43,11 @@ namespace TestShopping
 
             //then
             Assert.That(_checkout.Articles.Count(), Is.EqualTo(1));
+            Assert.That(_checkout.Balance, Is.EqualTo(_expectedBalance));
         }
 
         [Test]
-        public void Remove_OneArticleFromCartWithArticles_Success()
+        public void Remove_OneArticleFromCheckoutWithArticles_Success()
         {
             //given
             //refer to Setup
@@ -44,7 +62,6 @@ namespace TestShopping
             actualArticles = _checkout.Remove();
 
             //then
-            Assert.AreEqual(expectedArticles.Count(), actualArticles.Count());
             Assert.AreEqual(amountOfArticlesToAdd-1, _checkout.Articles.Count());
         }
 

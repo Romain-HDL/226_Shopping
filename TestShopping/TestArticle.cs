@@ -6,12 +6,14 @@ namespace TestShopping
     {
         #region private attributes
         private Article _article = null;
+        private float _price = 0f;
         #endregion private attributes
 
         [SetUp]
         public void Setup()
         {
-            _article = new Article();
+            _price = 20.45f;
+            _article = new Article(_price);
         }
 
         [Test]
@@ -19,53 +21,12 @@ namespace TestShopping
         {
             //given
             //refer to Setup
-            float expectedPrice = 20.45f;
 
             //when
-            _cart.Add(ArticleGenerator.Generate(1));
+            //Event will be triggered by constructor
 
             //then
-            Assert.That(_cart.Articles.Count(), Is.EqualTo(1));
-        }
-
-        [Test]
-        public void Remove_OneArticleFromCartWithArticles_Success()
-        {
-            //given
-            //refer to Setup
-            int amountOfArticlesToAdd = 10;
-            List<Article> expectedArticles = ArticleGenerator.Generate(amountOfArticlesToAdd);
-            List<Article> actualArticles = new List<Article>();
-
-            _cart.Add(expectedArticles);
-            Assert.AreEqual(expectedArticles.Count(), _cart.Articles.Count());
-
-            //when
-            actualArticles = _cart.Remove();
-
-            //then
-            Assert.AreEqual(expectedArticles.Count(), actualArticles.Count());
-            Assert.AreEqual(amountOfArticlesToAdd-1, _cart.Articles.Count());
-        }
-
-        [Test]
-        public void Remove_AllProductsFromCartWithArticles_Success()
-        {
-            //given
-            //refer to Setup
-            int amountOfArticlesToAdd = 10;
-            List<Article> expectedArticles = ArticleGenerator.Generate(amountOfArticlesToAdd);
-            List<Article> actualArticles = new List<Article>();
-            
-            _cart.Add(expectedArticles);
-            Assert.AreEqual(expectedArticles.Count(), _cart.Articles.Count());
-
-            //when
-            actualArticles = _cart.Remove();
-
-            //then
-            Assert.AreEqual(expectedArticles.Count(), actualArticles.Count());
-            Assert.AreEqual(0, _cart.Articles.Count());
+            Assert.AreEqual(_price, _article.Price);
         }
     }
 }
