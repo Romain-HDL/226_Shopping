@@ -14,7 +14,7 @@ namespace Shopping
             throw new NotImplementedException();
         }
 
-        public List<Article> Remove(List<Article>? articles = null)
+        public List<Article> Remove(Boolean empty = false)
         {
             throw new NotImplementedException();
         }
