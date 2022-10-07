@@ -16,7 +16,10 @@ namespace Shopping
 
         public List<Article> Remove(Boolean empty = false)
         {
-            throw new NotImplementedException();
+            List<Article> articlesReadyToCheckout = new List<Article>();
+            articlesReadyToCheckout.AddRange(_articles);
+            _articles.Clear();
+            return articlesReadyToCheckout;
         }
 
         public List<Article> Articles
