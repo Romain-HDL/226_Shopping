@@ -17,16 +17,17 @@ namespace Shopping
         public List<Article> Remove(Boolean clearCart = false)
         {
             List<Article> articlesReadyToCheckout = new List<Article>();
-            if (clearCart == true) 
-            {         
-                articlesReadyToCheckout.AddRange(_articles);
-                _articles.Clear();
-            }
-            else
+            if (!clearCart)
             {
                 articlesReadyToCheckout.Add(_articles.Last());
-                _articles.Remove(_articles.Last());             
+                _articles.Remove(_articles.Last());
+
+                return articlesReadyToCheckout;
             }
+
+            articlesReadyToCheckout.AddRange(_articles);
+            _articles.Clear();
+
             return articlesReadyToCheckout;
         }
 
