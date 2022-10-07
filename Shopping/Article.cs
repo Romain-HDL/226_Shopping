@@ -9,7 +9,7 @@
         #region public methods
         public Article(float price)
         {
-            throw new NotImplementedException();
+            _price = price;
         }
         public float Price
         {
